@@ -9,7 +9,7 @@
 import Foundation
 
 protocol MainViewPresenter {
-    init(view: MainView, coin: Coin, currency: Currency, limit: DaysLimit)
+    init(view: MainViewPresentable, coin: Coin, currency: Currency, limit: DaysLimit)
     
     func changeCoin(_ coin: Coin )
     func changeLimit(_ limit: DaysLimit)

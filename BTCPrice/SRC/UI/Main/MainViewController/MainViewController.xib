@@ -12,16 +12,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="BTCPrice" customModuleProvider="target">
             <connections>
-                <outlet property="labelDate" destination="heD-ed-AQa" id="Wf2-ek-fbj"/>
-                <outlet property="labelPrice" destination="KMe-4z-Ut7" id="iXN-2t-bhi"/>
-                <outlet property="lineChartView" destination="YZ1-Yh-eVp" id="ZbH-Ij-iIQ"/>
-                <outlet property="segmentedCoin" destination="lfM-5I-E6o" id="V1f-zt-AKA"/>
-                <outlet property="segmentedTime" destination="3ej-Bl-6B9" id="nbY-wA-eWX"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT" customClass="MainView" customModule="BTCPrice" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -95,6 +90,13 @@
                 <constraint firstItem="3ej-Bl-6B9" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="yH3-ZB-Cw1"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <connections>
+                <outlet property="labelDate" destination="heD-ed-AQa" id="jDW-KP-VL7"/>
+                <outlet property="labelPrice" destination="KMe-4z-Ut7" id="djF-s9-vPk"/>
+                <outlet property="lineChartView" destination="YZ1-Yh-eVp" id="GHG-sr-H45"/>
+                <outlet property="segmentedCoin" destination="lfM-5I-E6o" id="xfO-Hr-ykx"/>
+                <outlet property="segmentedTime" destination="3ej-Bl-6B9" id="BFS-0r-2gJ"/>
+            </connections>
             <point key="canvasLocation" x="137.68115942028987" y="153.34821428571428"/>
         </view>
     </objects>

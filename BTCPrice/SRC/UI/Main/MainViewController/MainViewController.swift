@@ -8,20 +8,12 @@
 import UIKit
 import Charts
 
-class MainViewController: UIViewController, MainView {
+class MainViewController: UIViewController, MainViewPresentable, RootView {
 
-   
-    // MARK: -  IBLabels
-    
-    @IBOutlet weak var labelDate: UILabel!
-    @IBOutlet weak var labelPrice: UILabel!
-    @IBOutlet weak var lineChartView: LineChartView!
-    @IBOutlet weak var segmentedTime: UISegmentedControl!
-    @IBOutlet weak var segmentedCoin: UISegmentedControl!
-    
     
     // MARK: -  Properties
     
+    typealias TypeView = MainView
     var presenter: MainViewPresenter!
 
     
@@ -43,8 +35,7 @@ class MainViewController: UIViewController, MainView {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.configureView()
-        self.configureNavigationBur()
+        self.configure()
         self.presenter.showChart()
     }
     
@@ -67,32 +58,35 @@ class MainViewController: UIViewController, MainView {
         ds.lineWidth = 3
         ds.colors = [.purple]
         data.addDataSet(ds)
-        self.lineChartView.data = data
-        
-        lineChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: months)
-        lineChartView.animate(xAxisDuration: 0.5)
+        self.rootView.map {
+            $0.lineChartView.data = data
+            $0.lineChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: months)
+            $0.lineChartView.animate(xAxisDuration: 0.5)
+        }
     }
     
     func updatePrice(with price: Double, for currency: Currency) {
-        self.labelDate.text = Date().string(with: .fullAlternate)
-        self.labelPrice.text = price.formatted(for: currency)
-        navigationItem.title = Coin
-            .element(at: segmentedCoin.selectedSegmentIndex)
-            .map { $0.description + " " + Constants.Text.price.capitalized }
+        self.rootView.map {
+            $0.labelDate.text = Date().string(with: .fullAlternate)
+            $0.labelPrice.text = price.formatted(for: currency)
+            navigationItem.title = Coin
+                .element(at: $0.segmentedCoin.selectedSegmentIndex)
+                .map { $0.description + " " + Constants.Text.price.capitalized }
+        }
     }
     
     
     // MARK: -  IBActions
     
     @IBAction func onTime(_ sender: UISegmentedControl) {
-        DaysLimit.element(at: segmentedTime.selectedSegmentIndex)
+        DaysLimit.element(at: (rootView?.segmentedTime.selectedSegmentIndex).default)
             .map {
                 self.presenter.changeLimit($0)
         }
     }
     
     @IBAction func onCoin(_ sender: UISegmentedControl) {
-        Coin.element(at: segmentedCoin.selectedSegmentIndex)
+        Coin.element(at: (rootView?.segmentedCoin.selectedSegmentIndex).default)
             .map {
                 self.presenter.changeCoin($0)
         }
@@ -105,13 +99,9 @@ class MainViewController: UIViewController, MainView {
     
     // MARK: -  Private methods
     
-    private func configureView() {
-        lineChartView.xAxis.labelPosition = .bottom
-        lineChartView.legend.enabled = false
-        lineChartView.doubleTapToZoomEnabled = false
-        lineChartView.backgroundColor = .white
-        lineChartView.rightAxis.drawAxisLineEnabled = false
-        lineChartView.rightAxis.drawLabelsEnabled = false
+    private func configure() {
+        self.rootView?.configure()
+        self.configureNavigationBur()
     }
     
     private func configureNavigationBur() {

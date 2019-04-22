@@ -14,6 +14,8 @@
 		5D2D1182226AE13700812CCB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D2D1180226AE13700812CCB /* LaunchScreen.storyboard */; };
 		5D2D118F226AE32C00812CCB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2D118D226AE32C00812CCB /* MainViewController.swift */; };
 		5D2D1190226AE32C00812CCB /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D2D118E226AE32C00812CCB /* MainViewController.xib */; };
+		5D406E26226E44A4006EF327 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D406E25226E44A4006EF327 /* MainView.swift */; };
+		5D406E2A226E45E5006EF327 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D406E29226E45E5006EF327 /* RootView.swift */; };
 		5D815067226CFB34003B1BFC /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D815066226CFB34003B1BFC /* Double+Extensions.swift */; };
 		5D81DA2C226C9A560048A0D4 /* ParserPrices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D81DA2B226C9A560048A0D4 /* ParserPrices.swift */; };
 		5D81DA30226C9F760048A0D4 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D81DA2F226C9F760048A0D4 /* Date+Extensions.swift */; };
@@ -39,6 +41,8 @@
 		5D2D1183226AE13700812CCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5D2D118D226AE32C00812CCB /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		5D2D118E226AE32C00812CCB /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		5D406E25226E44A4006EF327 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		5D406E29226E45E5006EF327 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		5D815066226CFB34003B1BFC /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
 		5D81DA2B226C9A560048A0D4 /* ParserPrices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserPrices.swift; sourceTree = "<group>"; };
 		5D81DA2F226C9F760048A0D4 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
@@ -147,6 +151,7 @@
 			children = (
 				5D2D118D226AE32C00812CCB /* MainViewController.swift */,
 				5D2D118E226AE32C00812CCB /* MainViewController.xib */,
+				5D406E25226E44A4006EF327 /* MainView.swift */,
 			);
 			path = MainViewController;
 			sourceTree = "<group>";
@@ -163,12 +168,8 @@
 		5D2D1192226AE37300812CCB /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				5DB57674226B965700027DC2 /* Optional+Extensions.swift */,
-				5D815066226CFB34003B1BFC /* Double+Extensions.swift */,
-				5D81DA2F226C9F760048A0D4 /* Date+Extensions.swift */,
-				5D81DA31226CA1050048A0D4 /* DatePattern+Extensions.swift */,
-				5DB57675226B965700027DC2 /* URLResponce+Extensions.swift */,
-				5DB57673226B965700027DC2 /* URLSession+Extensions.swift */,
+				5D406E27226E45A1006EF327 /* Protocols */,
+				5D406E28226E45D3006EF327 /* Extensions */,
 			);
 			path = Libraries;
 			sourceTree = "<group>";
@@ -179,6 +180,27 @@
 				5DB57671226B920E00027DC2 /* Prices.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		5D406E27226E45A1006EF327 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				5D406E29226E45E5006EF327 /* RootView.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		5D406E28226E45D3006EF327 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5DB57674226B965700027DC2 /* Optional+Extensions.swift */,
+				5D815066226CFB34003B1BFC /* Double+Extensions.swift */,
+				5D81DA2F226C9F760048A0D4 /* Date+Extensions.swift */,
+				5D81DA31226CA1050048A0D4 /* DatePattern+Extensions.swift */,
+				5DB57675226B965700027DC2 /* URLResponce+Extensions.swift */,
+				5DB57673226B965700027DC2 /* URLSession+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		5D815080226DA8D6003B1BFC /* Main */ = {
@@ -340,12 +362,14 @@
 				5DB57676226B965700027DC2 /* URLSession+Extensions.swift in Sources */,
 				5DB57677226B965700027DC2 /* Optional+Extensions.swift in Sources */,
 				5D2D118F226AE32C00812CCB /* MainViewController.swift in Sources */,
+				5D406E2A226E45E5006EF327 /* RootView.swift in Sources */,
 				5D81DA30226C9F760048A0D4 /* Date+Extensions.swift in Sources */,
 				5DB57672226B920E00027DC2 /* Prices.swift in Sources */,
 				5D1CD132226C781D00FEB3BC /* MainPresenter.swift in Sources */,
 				5D2D1178226AE13600812CCB /* AppDelegate.swift in Sources */,
 				5DB57678226B965700027DC2 /* URLResponce+Extensions.swift in Sources */,
 				5D1CD136226C7C8800FEB3BC /* MainViewPresenter.swift in Sources */,
+				5D406E26226E44A4006EF327 /* MainView.swift in Sources */,
 				5D815067226CFB34003B1BFC /* Double+Extensions.swift in Sources */,
 				5DB5767D226BA06400027DC2 /* HistoryPriceSession.swift in Sources */,
 				5D81DA34226CA9490048A0D4 /* CurentPriceSession.swift in Sources */,

@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol MainView: class {
+protocol MainViewPresentable: class {
     func updateChart(with prices: Prices)
     func updatePrice(with price: Double, for currency: Currency)
 }
@@ -17,7 +17,7 @@ class MainPresenter: MainViewPresenter {
 
     // MARK: -  Properties
     
-    weak var view: MainView!
+    weak var view: MainViewPresentable!
     var coin: Coin
     var limit: DaysLimit
     var currency: Currency = .USD
@@ -27,7 +27,7 @@ class MainPresenter: MainViewPresenter {
     
     // MARK: -  Initializations
     
-    required init(view: MainView,
+    required init(view: MainViewPresentable,
                   coin: Coin,
                   currency: Currency,
                   limit: DaysLimit)
