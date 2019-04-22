@@ -13,7 +13,7 @@ class MainViewController: UIViewController, MainViewPresentable, RootView {
     
     // MARK: -  Properties
     
-    typealias TypeView = MainView
+    typealias ViewType = MainView
     var presenter: MainViewPresenter!
 
     

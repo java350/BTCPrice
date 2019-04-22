@@ -6,17 +6,16 @@
 //  Copyright © 2019 java. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
-protocol RootView where Self: UIViewController {
-    associatedtype TypeView
+protocol RootView: class {
+    associatedtype ViewType: UIView
     
-    var rootView: TypeView? { get }
+    var rootView: ViewType? { get }
 }
 
-extension RootView {
-    var rootView: TypeView? {
-        return self.viewIfLoaded as? TypeView
+extension RootView where Self: UIViewController {
+    var rootView: ViewType? {
+        return self.viewIfLoaded as? ViewType
     }
 }
