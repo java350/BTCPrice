@@ -1,0 +1,6 @@
+framework module Pods_BTCPrice {
+  umbrella header "Pods-BTCPrice-umbrella.h"
+
+  export *
+  module * { export * }
+}
