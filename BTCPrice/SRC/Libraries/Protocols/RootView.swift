@@ -10,7 +10,6 @@ import UIKit
 
 protocol RootView: class {
     associatedtype ViewType: UIView
-    
     var rootView: ViewType? { get }
 }
 
